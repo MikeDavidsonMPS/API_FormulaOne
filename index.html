@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Formula One Schedule</title>
+    <link rel="stylesheet" ref="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h1>Formula One</h1>
+        <h2>Season Information</h2>
+      </div>
+
+      <div class="search_engine">
+        <form>
+          <p>
+            <label for="race_season"> Season: </label>
+            <input
+              type="number"
+              id="season"
+              class="race_season"
+              pattern="[0-9]{8}"
+            />
+          </p>
+          <p>
+            <label for="race_year"> Season's Year: </label>
+            <input
+              type="year"
+              id="race_year"
+              class="race_year"
+              pattern="[0-9]{8}"
+            />
+          </p>
+          <p>
+            <label for="race_Month"> Season's Month: </label>
+            <input
+              type="month"
+              id="race_month"
+              class="race_month"
+              pattern="[0-9]{8}"
+            />
+          </p>
+          <p>
+            <label for="country"> Host Country: </label>
+            <input type="text" id="search" class="search" />
+          </p>
+          <p>
+            <label for="race_name"> Name of Race: </label>
+            <input type="text" id="search" class="search" />
+          </p>
+          <p>
+            <label for="race_location"> Race Location: </label>
+            <input type="text" id="search" class="search" />
+          </p>
+          <p>
+            <button class="submit">Search</button>
+          </p>
+        </form>
+      </div>
+      <div class="results">
+        <nav>
+          <button class="prev">Previous</button>
+          <button class="next">Next</button>
+        </nav>
+        <section></section>
+      </div>
+      <script type="text/javascript" src="script.js"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+body {
+  margin: 0 0 20px 0;
+  padding: 0;
+  display: block;
+  font-size: 50px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: lightgray;
+  color: #333;
+  text-align: center;
+}
+.wrapper {
+  text-align: left;
+}
+
+.header {
+  text-align: center;
+  font-weight: 300;
+  font-size: 60px;
+}
+.race_date {
+  text-align: justify;
+}
