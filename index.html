@@ -18,34 +18,21 @@
       <div class="search_engine">
         <form>
           <p>
-            <label for="race_season"> Season: </label>
-            <input
-              type="number"
-              id="season"
-              class="race_season"
-              pattern="[0-9]{8}"
-            />
-          </p>
-          <p>
-            <label for="race_year"> Season's Year: </label>
+            <label for="race_season"> Season Number (i.e: 01): </label>
             <input
               type="year"
-              id="race_year"
-              class="race_year"
-              pattern="[0-9]{8}"
+              id="search"
+              class="race_season"
+              pattern="[0-9]{4}"
+              required
             />
           </p>
           <p>
-            <label for="race_Month"> Season's Month: </label>
-            <input
-              type="month"
-              id="race_month"
-              class="race_month"
-              pattern="[0-9]{8}"
-            />
+            <label for="race_month"> Season's Month: </label>
+            <input type="month" id="search" class="race_month" />
           </p>
           <p>
-            <label for="country"> Host Country: </label>
+            <label for="country_search"> Host Country: </label>
             <input type="text" id="search" class="search" />
           </p>
           <p>

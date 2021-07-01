@@ -1,25 +1,24 @@
-const baseURL = "http://ergast.com/api/f1.json";
+const baseURL = "http://ergast.com/api/f1/seasons.json";
 let url;
 
-//*SEARCH ENGINE
-const raceSeason = document.querySelector(".race_season");
-const raceYear = document.querySelector(".race_year");
-const raceMouth = document.querySelector(".race_month");
-const countrySearch = document.querySelector(".counrty_search");
+//*SEARCH ENGINE:querySelectors
+const raceSeasons = document.querySelector(".race_season");
+const raceMonth = document.querySelector(".race_month");
+const countrySearch = document.querySelector(".country_search");
 const raceName = document.querySelector(".race_name");
-const raceLocation = document.querySelector("race_location");
+const raceLocation = document.querySelector(".race_location");
 const searchForm = document.querySelector("form");
 const submitBtn = document.querySelector(".submit");
 //*Result Navigation
 const nextBtn = document.querySelector(".next");
 const previousBtn = document.querySelector(".prev");
 const nav = document.querySelector("nav");
-//*RESULTS SECTION
+//*Results Section:
 const section = document.querySelector("section");
 nav.style.display = "none";
 let pageNumber = 0;
 
-//console.log("PageNumber:", pageNumber);
+//*EventListener:
 searchForm.addEventListener("submit", fetchResults);
 nextBtn.addEventListener("click", nextPage);
 previousBtn.addEventListener("click", previousPage);
@@ -27,16 +26,11 @@ previousBtn.addEventListener("click", previousPage);
 function fetchResults(u) {
   //console.log(u);
   u.preventDefault();
-  url = `${baseURL}?api&page=${pageNumber}&q=${raceSeason.value}`;
+  url = `${baseURL}?callback=${raceSeasons.value}`;
   //console.log("URL:", url);
-  if (raceYear.value !== "") {
-    console.log(raceYear.value);
-    url += "&year=" + raceYear.value;
-    console.log("URL:", url);
-  }
-  if (raceMouth.value !== "") {
-    console.log(raceName.value);
-    url += "&month=" + raceMouth.value;
+  /*if (raceMonth.value !== "") {
+    console.log(raceMonth.value);
+    url += "&month=" + raceMonth.value;
     console.log("URL:", url);
   }
   if (countrySearch.value !== "") {
@@ -53,50 +47,43 @@ function fetchResults(u) {
     console.log(raceLocation.value);
     url += "&location=" + raceLocation.value;
     console.log("URL:", url);
-  }
+  }*/
   fetch(url)
     .then(function (results) {
-      return results.json();
+      console.log(results.json());
     })
     .then(function (json) {
-      console.log(json);
+      //console.log(json);
+      displayResults(json);
     });
 }
 
 function displayResults(json) {
   console.log("Display Results", json);
-  // console.log(json.response.docs);
+  //console.log(json.response.docs);
   while (section.firstChild) {
     section.removeChild(section.firstChild);
   }
 
-  let content = json.response.docs;
-  // console.log content);
-  if (content.length === 0) {
+  let resultData = json.response.docs;
+  console.log(resultData);
+  if (resultData.length === 0) {
     console.log("No results");
   } else {
-    for (let i = 0; i < content.length; i++) {
+    for (let i = 0; i < resultData.length; i++) {
       // console.log(i);
-      let content = document.createElement("table");
-      let heading = document.createElement("th");
-      let rows = document.createElement("tr");
-      let data = document.createElement("td");
-      let current = content[i];
-      console.log("Current:", current);
-      link.href = current.web_url;
-      para.textContent = "Keywords: ";
-      for (let j = 0; j < current.keywords.length; j++) {
-        let span = document.createElement("span");
-        span.textContent += current.keywords[j].value + " ";
-        para.appendChild(span);
-      }
-      clearfix.setAttribute("class");
-      content.appendChild(table);
-      section.appendChild(content);
-      // clearfix.style.padding = '50px'
+      let resultData = document.createElement("resultData");
+      //let heading = document.createElement("th");
+      //let rows = document.createElement("tr");
+      //let data = document.createElement("td");
+      let retrievedData = resultData[i];
+      console.log("Search Results:", retrievedData);
+
+      resultData.appendChild(DataTransferItem);
+      section.appendChild(resultData);
     }
   }
-  if (content.length === 10) {
+  if (resultData.length === 10) {
     nav.style.display = "block";
   } else {
     nav.style.display = "none";
